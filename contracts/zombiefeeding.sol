@@ -43,7 +43,7 @@ contract ZombieFeeding is ZombieFactory {
     require(_isReady(myZombie));
     _targetDna = _targetDna % dnaModulus;
     uint newDna = (myZombie.dna + _targetDna) / 2;
-    if (keccak256(_species) == keccak256("kitty")) {
+    if (keccak256(abi.encodePacked(_species)) == keccak256(abi.encodePacked("kitty"))) {
       newDna = newDna - newDna % 100 + 99;
     }
     _createZombie("NoName", newDna);

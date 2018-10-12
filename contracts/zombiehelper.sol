@@ -12,7 +12,7 @@ contract ZombieHelper is ZombieFeeding {
   }
 
   function withdraw() external onlyOwner {
-    owner.transfer(this.balance);
+    owner.transfer(address(this).balance);
   }
 
   function setLevelUpFee(uint _fee) external onlyOwner {
